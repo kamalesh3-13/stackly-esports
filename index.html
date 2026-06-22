@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Professional Esports Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloading Page -->
+    <div id="preloader" class="preloader">
+        <!-- Floating particles -->
+        <div class="preloader-particles" id="preloaderParticles"></div>
+
+        <div class="preloader-inner">
+            <!-- Spinning rings + logo -->
+            <div class="preloader-ring-wrap">
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+                <img src="logo.webp" alt="Stackly" class="preloader-logo-img">
+            </div>
+
+            <!-- Brand name -->
+            <div class="preloader-brand">STACKLY</div>
+            <div class="preloader-tagline">Esports Analytics Platform</div>
+
+            <!-- Progress bar -->
+            <div class="preloader-bar-wrap">
+                <div class="preloader-bar" id="preloaderBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="showPage('home')" style="cursor: pointer;">
+                <img src="logo.webp" alt="Stackly" class="logo-img">
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="showPage('home')" class="nav-link">Home</a></li>
+                <li><a href="#" onclick="showPage('categories')" class="nav-link">Categories</a></li>
+                <li><a href="#" onclick="showPage('tournaments')" class="nav-link">Tournaments</a></li>
+                <li><a href="#" onclick="showPage('blog')" class="nav-link">Blog</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                <li id="nav-signin-item"><a href="#" onclick="showPage('signin')" class="nav-link signin-btn">Sign In</a></li>
+                <li id="nav-register-item"><a href="#" onclick="openRegister()" class="nav-link register-btn">Register</a></li>
+                <li id="nav-user-item" style="display:none;">
+                    <span class="nav-username" id="nav-username-label"></span>
+                    <a href="#" onclick="logoutUser()" class="nav-link logout-btn">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Stackly Esports Analytics</h1>
+                    <p>Your complete platform for tournaments, teams, players & esports data</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <section class="quick-stats">
+            <div class="container">
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">5,280</div>
+                        <div class="stat-label">Tournaments & Events</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8,542</div>
+                        <div class="stat-label">Professional Teams</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">23,891</div>
+                        <div class="stat-label">Pro Players</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">159</div>
+                        <div class="stat-label">Esports Games</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Matches Section -->
+        <section class="live-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Live Matches Now</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="matches-list">
+                    <div class="match-item">
+                        <div class="match-status live">LIVE</div>
+                        <div class="match-game">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d1/d22/6800d1d222d30096326496.png" alt="Valorant">
+                            Valorant
+                        </div>
+                        <div class="match-teams">
+                            <span class="team">LOUD</span>
+                            <span class="vs">VS</span>
+                            <span class="team">FaZe</span>
+                        </div>
+                        <div class="match-event">Champions League 2026</div>
+                        <div class="match-viewers">42.5K viewers</div>
+                    </div>
+                    <div class="match-item">
+                        <div class="match-status live">LIVE</div>
+                        <div class="match-game">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d1/3e2/6800d13e244a2139266241.png" alt="CS2">
+                            CS2
+                        </div>
+                        <div class="match-teams">
+                            <span class="team">NAVI</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Team Vitality</span>
+                        </div>
+                        <div class="match-event">IEM Cologne 2026</div>
+                        <div class="match-viewers">187.3K viewers</div>
+                    </div>
+                    <div class="match-item">
+                        <div class="match-status live">LIVE</div>
+                        <div class="match-game">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d0/20d/6800d020d24b2850087478.png" alt="LoL">
+                            LoL
+                        </div>
+                        <div class="match-teams">
+                            <span class="team">T1</span>
+                            <span class="vs">VS</span>
+                            <span class="team">Faker Legends</span>
+                        </div>
+                        <div class="match-event">LCK 2026</div>
+                        <div class="match-viewers">1.2M viewers</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Tournaments -->
+        <section class="tournaments-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recent Tournaments</h2>
+                    <a href="#" onclick="showPage('tournaments')" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="tournaments-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tournament Name</th>
+                                <th>Game</th>
+                                <th>Prize Pool</th>
+                                <th>Teams</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Valorant Champions League 2026</strong></td>
+                                <td><span class="game-badge">Valorant</span></td>
+                                <td>$5,000,000</td>
+                                <td>32</td>
+                                <td>Jun 15 - Jul 30</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IEM Cologne Major 2026</strong></td>
+                                <td><span class="game-badge">CS2</span></td>
+                                <td>$1,250,000</td>
+                                <td>24</td>
+                                <td>Jun 02 - Jun 21</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LCK 2026 Road to MSI</strong></td>
+                                <td><span class="game-badge">LoL</span></td>
+                                <td>$2,500,000</td>
+                                <td>10</td>
+                                <td>Jun 06 - Jun 14</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dota 2 World Series 2026</strong></td>
+                                <td><span class="game-badge">Dota 2</span></td>
+                                <td>$40,000,000</td>
+                                <td>16</td>
+                                <td>Aug 01 - Sep 15</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Overwatch League 2026 Finals</strong></td>
+                                <td><span class="game-badge">OW2</span></td>
+                                <td>$5,000,000</td>
+                                <td>20</td>
+                                <td>Jul 10 - Jul 20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Teams Section -->
+        <section class="top-teams-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Top Professional Teams</h2>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="top-teams-grid">
+                    <div class="team-ranking">
+                        <div class="rank">1</div>
+                        <div class="team-info">
+                            <h4>Team Liquid</h4>
+                            <p>Multi-game organization</p>
+                        </div>
+                        <div class="team-meta">
+                            <span>156 Tournaments</span>
+                        </div>
+                    </div>
+                    <div class="team-ranking">
+                        <div class="rank">2</div>
+                        <div class="team-info">
+                            <h4>Natus Vincere</h4>
+                            <p>CS2 & Multi-game</p>
+                        </div>
+                        <div class="team-meta">
+                            <span>142 Tournaments</span>
+                        </div>
+                    </div>
+                    <div class="team-ranking">
+                        <div class="rank">3</div>
+                        <div class="team-info">
+                            <h4>Team Falcons</h4>
+                            <p>Dota 2 Champions</p>
+                        </div>
+                        <div class="team-meta">
+                            <span>138 Tournaments</span>
+                        </div>
+                    </div>
+                    <div class="team-ranking">
+                        <div class="rank">4</div>
+                        <div class="team-info">
+                            <h4>G2 Esports</h4>
+                            <p>European powerhouse</p>
+                        </div>
+                        <div class="team-meta">
+                            <span>125 Tournaments</span>
+                        </div>
+                    </div>
+                    <div class="team-ranking">
+                        <div class="rank">5</div>
+                        <div class="team-info">
+                            <h4>FaZe Clan</h4>
+                            <p>CS2 Leaders</p>
+                        </div>
+                        <div class="team-meta">
+                            <span>118 Tournaments</span>
+                        </div>
+                    </div>
+                    <div class="team-ranking">
+                        <div class="rank">6</div>
+                        <div class="team-info">
+                            <h4>Sentinels</h4>
+                            <p>Valorant Champions</p>
+                        </div>
+                        <div class="team-meta">
+                            <span>97 Tournaments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Games by Viewership -->
+        <section class="top-games-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Top Games by Peak Viewers</h2>
+                    <a href="#" onclick="showPage('categories')" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="games-grid-pro">
+                    <div class="game-ranking-card">
+                        <div class="ranking-num">1</div>
+                        <div class="game-content">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d1/419/6800d1419e40c703124021.png" alt="MLBB" class="game-icon">
+                            <h3>Mobile Legends: Bang Bang</h3>
+                            <p class="peak-viewers">5.7M Peak Viewers</p>
+                            <p class="description">Tactical Mobile MOBA</p>
+                        </div>
+                    </div>
+                    <div class="game-ranking-card">
+                        <div class="ranking-num">2</div>
+                        <div class="game-content">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d0/20d/6800d020d24b2850087478.png" alt="LoL" class="game-icon">
+                            <h3>League of Legends</h3>
+                            <p class="peak-viewers">1.5M Peak Viewers</p>
+                            <p class="description">Classic MOBA Strategy</p>
+                        </div>
+                    </div>
+                    <div class="game-ranking-card">
+                        <div class="ranking-num">3</div>
+                        <div class="game-content">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d1/3e2/6800d13e244a2139266241.png" alt="CS2" class="game-icon">
+                            <h3>Counter-Strike 2</h3>
+                            <p class="peak-viewers">1.4M Peak Viewers</p>
+                            <p class="description">Competitive FPS</p>
+                        </div>
+                    </div>
+                    <div class="game-ranking-card">
+                        <div class="ranking-num">4</div>
+                        <div class="game-content">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d1/809/6800d18093a81846557683.png" alt="PUBG" class="game-icon">
+                            <h3>PUBG Mobile</h3>
+                            <p class="peak-viewers">1.1M Peak Viewers</p>
+                            <p class="description">Mobile Battle Royale</p>
+                        </div>
+                    </div>
+                    <div class="game-ranking-card">
+                        <div class="ranking-num">5</div>
+                        <div class="game-content">
+                            <img src="https://cdnr.escharts.com/uploads/public/680/0d1/d22/6800d1d222d30096326496.png" alt="Valorant" class="game-icon">
+                            <h3>Valorant</h3>
+                            <p class="peak-viewers">883.1K Peak Viewers</p>
+                            <p class="description">Tactical Shooter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="container">
+                <h2>Stackly Plans</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <h3>Free</h3>
+                            <p class="product-subtitle">For Everyone</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> 5,280+ Tournaments</li>
+                            <li><i class="fas fa-check"></i> 23,891 Players & Teams</li>
+                            <li><i class="fas fa-check"></i> Live Statistics</li>
+                            <li><i class="fas fa-check"></i> Tournament Follows</li>
+                            <li><i class="fas fa-check"></i> Esports News</li>
+                        </ul>
+                        <button class="btn btn-outline">Get Started</button>
+                    </div>
+                    <div class="product-card featured">
+                        <div class="product-header">
+                            <h3>PRO</h3>
+                            <p class="product-subtitle">For Enthusiasts & Media</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> All Free Features</li>
+                            <li><i class="fas fa-check"></i> Tournament Analytics</li>
+                            <li><i class="fas fa-check"></i> Peak Viewers by Platform</li>
+                            <li><i class="fas fa-check"></i> Event Comparisons</li>
+                            <li><i class="fas fa-check"></i> Exclusive News</li>
+                        </ul>
+                        <button class="btn btn-primary">Start Free Trial</button>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-header">
+                            <h3>Dashboard</h3>
+                            <p class="product-subtitle">For Teams & Orgs</p>
+                        </div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Viewership Charts</li>
+                            <li><i class="fas fa-check"></i> Detailed Analytics</li>
+                            <li><i class="fas fa-check"></i> Stream Statistics</li>
+                            <li><i class="fas fa-check"></i> Team Performance</li>
+                            <li><i class="fas fa-check"></i> Custom Reports</li>
+                        </ul>
+                        <button class="btn btn-outline">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News -->
+        <section class="latest-news-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Latest Esports News</h2>
+                    <a href="#" onclick="showPage('blog')" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <img src="images/t1-vs-hle.jpg" alt="T1 vs HLE LCK 2026">
+                        <div class="news-content">
+                            <span class="news-date">Jun 12, 2026</span>
+                            <h3>T1 vs HLE hits 1.2M Peak Viewers at LCK 2026</h3>
+                            <p>Record-breaking viewership for the League of Legends Korean championship. T1 wins 2-1 in a thrilling series...</p>
+                            <a href="#" onclick="showPage('blog')" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="images/iem-cologne-major.png" alt="IEM Cologne Major 2026">
+                        <div class="news-content">
+                            <span class="news-date">Jun 11, 2026</span>
+                            <h3>IEM Cologne Major 2026 Hits 1M Peak Viewers</h3>
+                            <p>Counter-Strike championship opens 30% ahead of previous major tournament with a historic viewership milestone...</p>
+                            <a href="#" onclick="showPage('blog')" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="images/valorant-masters.jpg" alt="Valorant Masters 2026">
+                        <div class="news-content">
+                            <span class="news-date">Jun 10, 2026</span>
+                            <h3>Valorant Masters Swiss Stage Day 3 Results</h3>
+                            <p>Team Liquid and Paper Rex battle it out in the Swiss Stage — top tier plays across Day 3 action...</p>
+                            <a href="#" onclick="showPage('blog')" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By Section -->
+        <section class="trusted-by-section">
+            <div class="container">
+                <h2>Trusted by Leading Esports Organizations</h2>
+                <div class="partners-grid">
+                    <div class="partner">Team Liquid</div>
+                    <div class="partner">Natus Vincere</div>
+                    <div class="partner">G2 Esports</div>
+                    <div class="partner">Fnatic</div>
+                    <div class="partner">Team Falcons</div>
+                    <div class="partner">FaZe Clan</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Categories Page -->
+    <div id="categories" class="page">
+        <div class="page-header">
+            <h1>Game Categories</h1>
+            <p>Choose your favorite games and start competing</p>
+        </div>
+        <div class="container">
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="images/fps-games.jpg" alt="FPS Games">
+                    <h3>FPS Games</h3>
+                    <p>Fast-paced shooting action</p>
+                    <span class="game-count">12 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/moba-games.jpg" alt="MOBA Games">
+                    <h3>MOBA Games</h3>
+                    <p>Team-based strategy</p>
+                    <span class="game-count">8 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/fighting-games.jpg" alt="Fighting Games">
+                    <h3>Fighting Games</h3>
+                    <p>One-on-one combat</p>
+                    <span class="game-count">15 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/racing-games.jpg" alt="Racing Games">
+                    <h3>Racing Games</h3>
+                    <p>High-speed competition</p>
+                    <span class="game-count">10 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/strategy-games.jpg" alt="Strategy Games">
+                    <h3>Strategy Games</h3>
+                    <p>Tactical gameplay</p>
+                    <span class="game-count">7 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/card-games.jpg" alt="Card Games">
+                    <h3>Card Games</h3>
+                    <p>Strategic card battles</p>
+                    <span class="game-count">9 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/sports-simulation.jpg" alt="Sports Simulation">
+                    <h3>Sports Simulation</h3>
+                    <p>Virtual sports competition</p>
+                    <span class="game-count">8 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/shooting-games.jpg" alt="Shooting Games">
+                    <h3>Shooting Games</h3>
+                    <p>Competitive gunplay</p>
+                    <span class="game-count">14 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/battle-royale.jpg" alt="Battle Royale">
+                    <h3>Battle Royale</h3>
+                    <p>Survival and elimination</p>
+                    <span class="game-count">6 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/puzzle-games.jpg" alt="Puzzle Games">
+                    <h3>Puzzle Games</h3>
+                    <p>Mind-bending challenges</p>
+                    <span class="game-count">11 Games</span>
+                </div>
+                <div class="category-card">
+                    <img src="images/multiplayer-online.jpg" alt="Multiplayer Online">
+                    <h3>Multiplayer Online</h3>
+                    <p>Team cooperation games</p>
+                    <span class="game-count">13 Games</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tournaments Page -->
+    <div id="tournaments" class="page">
+        <div class="page-header">
+            <h1>Active Tournaments</h1>
+            <p>Join exciting tournaments and win big prizes</p>
+        </div>
+        <div class="container">
+            <div class="tournaments-list">
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <h3>Valorant Championship 2024</h3>
+                        <span class="badge badge-live">LIVE</span>
+                    </div>
+                    <div class="tournament-info">
+                        <p><i class="fas fa-trophy"></i> Prize Pool: <strong>$500,000</strong></p>
+                        <p><i class="fas fa-users"></i> Teams: <strong>64 Teams</strong></p>
+                        <p><i class="fas fa-calendar"></i> Duration: <strong>June 15 - July 30</strong></p>
+                        <p><i class="fas fa-level-up"></i> Tier: <strong>Professional</strong></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('register')">Register Team</button>
+                </div>
+
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <h3>League of Legends Spring Split</h3>
+                        <span class="badge badge-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="tournament-info">
+                        <p><i class="fas fa-trophy"></i> Prize Pool: <strong>$1,000,000</strong></p>
+                        <p><i class="fas fa-users"></i> Teams: <strong>32 Teams</strong></p>
+                        <p><i class="fas fa-calendar"></i> Duration: <strong>July 5 - August 20</strong></p>
+                        <p><i class="fas fa-level-up"></i> Tier: <strong>Professional</strong></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('register')">Register Team</button>
+                </div>
+
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <h3>CS:GO 2 Amateur League</h3>
+                        <span class="badge badge-open">OPEN</span>
+                    </div>
+                    <div class="tournament-info">
+                        <p><i class="fas fa-trophy"></i> Prize Pool: <strong>$150,000</strong></p>
+                        <p><i class="fas fa-users"></i> Teams: <strong>128 Teams</strong></p>
+                        <p><i class="fas fa-calendar"></i> Duration: <strong>Ongoing</strong></p>
+                        <p><i class="fas fa-level-up"></i> Tier: <strong>Amateur</strong></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('register')">Register Team</button>
+                </div>
+
+                <div class="tournament-card">
+                    <div class="tournament-header">
+                        <h3>Dota 2 World Series</h3>
+                        <span class="badge badge-upcoming">UPCOMING</span>
+                    </div>
+                    <div class="tournament-info">
+                        <p><i class="fas fa-trophy"></i> Prize Pool: <strong>$2,000,000</strong></p>
+                        <p><i class="fas fa-users"></i> Teams: <strong>16 Teams</strong></p>
+                        <p><i class="fas fa-calendar"></i> Duration: <strong>August 1 - September 15</strong></p>
+                        <p><i class="fas fa-level-up"></i> Tier: <strong>Professional</strong></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="showPage('register')">Register Team</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page">
+        <div class="page-header">
+            <h1>Esports Blog</h1>
+            <p>Latest news and insights from the esports world</p>
+        </div>
+        <div class="container">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="images/valorant-champions.jpg" alt="Valorant Champions Tour">
+                    <span class="blog-date">June 20, 2026</span>
+                    <h3>Valorant Champions Tour 2026: What to Expect</h3>
+                    <p>Get ready for the most competitive Valorant championship yet. Teams from around the world are preparing their strategies for glory...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/rising-stars.jpg" alt="Rising Stars">
+                    <span class="blog-date">June 18, 2026</span>
+                    <h3>Rising Stars: New Esports Talents to Watch</h3>
+                    <p>The next generation of esports superstars is here. Meet the NBA-level rising stars of competitive gaming heading into the summer season...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/gaming-setup.jpg" alt="Gaming Setup">
+                    <span class="blog-date">June 15, 2026</span>
+                    <h3>Gaming Setup Guide for Professionals</h3>
+                    <p>Discover the essential hardware and software that professional esports players use to maintain their competitive edge in tournaments...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/interview-pro-player.jpg" alt="Interview Pro Player">
+                    <span class="blog-date">June 12, 2026</span>
+                    <h3>Interview: Pro Player Shares Success Tips &amp; Tricks</h3>
+                    <p>Top Indus Game pros share their best tips, tricks, and strategies for aspiring esports professionals looking to level up...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/tournament-updates.jpg" alt="Tournament Updates">
+                    <span class="blog-date">June 10, 2026</span>
+                    <h3>Tournament Updates: NBA Playoffs &amp; Esports Standings</h3>
+                    <p>Check out the latest results from ongoing tournaments and see where your favorite teams stand in the current rankings...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+
+                <article class="blog-card">
+                    <img src="images/future-of-esports.jpg" alt="Future of Esports">
+                    <span class="blog-date">June 8, 2026</span>
+                    <h3>The Future of Esports: What to Expect</h3>
+                    <p>As the esports industry continues to grow globally, we explore the exciting developments and trends shaping the future of competitive gaming...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="page-header">
+            <h1>About Stackly</h1>
+            <p>Leading the future of esports</p>
+        </div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-section">
+                    <h2>Who We Are</h2>
+                    <p>Stackly is the premier esports platform dedicated to connecting players, teams, and organizations worldwide. Since our launch, we've become the go-to destination for competitive gaming, offering world-class tournaments, player development, and a vibrant community.</p>
+                </div>
+
+                <div class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>To democratize esports by providing equal opportunities for players of all skill levels to compete, grow, and achieve their dreams. We believe in transparency, fairness, and innovation in competitive gaming.</p>
+                </div>
+
+                <div class="about-section">
+                    <h2>Our Vision</h2>
+                    <p>To become the world's most trusted esports platform, recognized for excellence in tournament management, player development, and community building. We aim to inspire the next generation of esports champions.</p>
+                </div>
+
+                <div class="team-section">
+                    <h2>Leadership Team</h2>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Team Member">
+                            <h4>John Smith</h4>
+                            <p>CEO & Founder</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Team Member">
+                            <h4>Sarah Johnson</h4>
+                            <p>CTO & Co-Founder</p>
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Team Member">
+                            <h4>Michael Chen</h4>
+                            <p>Head of Operations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="values-section">
+                    <h2>Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <i class="fas fa-star"></i>
+                            <h4>Excellence</h4>
+                            <p>We strive for excellence in everything we do</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Integrity</h4>
+                            <p>Fair play and honest competition</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Community</h4>
+                            <p>Building a supportive gaming community</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h4>Innovation</h4>
+                            <p>Constantly improving the esports experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In / Sign Up Page -->
+    <div id="signin" class="page">
+        <div class="form-container">
+            <div class="form-card">
+                <div class="form-header">
+                    <img src="logo.webp" alt="Stackly" class="form-logo">
+                    <h2>Join Stackly Esports</h2>
+                    <p class="form-subtitle">Become part of the ultimate esports community</p>
+                </div>
+                
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="switchAuthTab('signin-tab')">Sign In</button>
+                        <button class="tab-btn" onclick="switchAuthTab('signup-tab')">Create Account</button>
+                    </div>
+
+                    <!-- Sign In Tab -->
+                    <div id="signin-tab" class="tab-content active">
+                        <form id="signinForm">
+                            <div class="form-group">
+                                <label for="signin-email">Email Address</label>
+                                <input type="email" id="signin-email" name="email" required placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-password">Password</label>
+                                <input type="password" id="signin-password" name="password" required placeholder="Enter your password">
+                            </div>
+                            <div class="form-options">
+                                <label class="remember-me">
+                                    <input type="checkbox" name="remember">
+                                    Remember me
+                                </label>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary form-btn">Sign In</button>
+                        </form>
+                    </div>
+
+                    <!-- Sign Up Tab -->
+                    <div id="signup-tab" class="tab-content">
+                        <form id="registerForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="register-fname">First Name</label>
+                                    <input type="text" id="register-fname" name="firstname" required placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-lname">Last Name</label>
+                                    <input type="text" id="register-lname" name="lastname" required placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-username">Gaming Username</label>
+                                <input type="text" id="register-username" name="username" required placeholder="Your pro username">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-email">Email Address</label>
+                                <input type="email" id="register-email" name="email" required placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-game">Preferred Game</label>
+                                <select id="register-game" name="game" required>
+                                    <option value="">Select your main game</option>
+                                    <option value="valorant">Valorant</option>
+                                    <option value="lol">League of Legends</option>
+                                    <option value="csgo">CS:GO 2</option>
+                                    <option value="dota2">Dota 2</option>
+                                    <option value="overwatch">Overwatch 2</option>
+                                    <option value="apex">Apex Legends</option>
+                                    <option value="fortnite">Fortnite</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <input type="password" id="register-password" name="password" required placeholder="Create a strong password">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-confirm">Confirm Password</label>
+                                <input type="password" id="register-confirm" name="confirm" required placeholder="Confirm password">
+                            </div>
+                            <label class="terms-agree">
+                                <input type="checkbox" name="terms" required>
+                                I agree to the Terms of Service and Privacy Policy
+                            </label>
+                            <button type="submit" class="btn btn-primary form-btn">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Page - redirects to signup tab on signin page -->
+    <div id="register" class="page">
+        <div class="form-container">
+            <div class="form-card" style="text-align:center; padding: 3rem;">
+                <img src="logo.webp" alt="Stackly" class="form-logo" style="width:80px; margin-bottom:1rem;">
+                <h2>Redirecting to Registration...</h2>
+                <p style="color:var(--text-muted); margin-top:0.5rem;">Please wait...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <p>Get in touch with the Stackly team</p>
+        </div>
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card map-link-card" onclick="openAddressMap()" title="Click to open in Google Maps">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Address <span class="map-hint"><i class="fas fa-external-link-alt"></i> Open Map</span></h3>
+                        <p>123 Gaming Street<br>Los Angeles, CA 90210</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>support@stackly.com</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Hours</h3>
+                        <p>24/7 Support Available</p>
+                    </div>
+                </div>
+
+                <!-- Embedded Map -->
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.7152203493566!2d-118.24368368478788!3d34.05223198060756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fefa0613d0905!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                        width="100%" height="300" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="contact-name">Full Name</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="Your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="subject" required placeholder="Message subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="6" required placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Stackly</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report Bug</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Stackly Esports. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
